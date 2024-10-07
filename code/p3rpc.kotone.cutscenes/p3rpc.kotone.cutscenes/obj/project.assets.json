@@ -1,0 +1,271 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "Microsoft.NET.ILLink.Tasks/9.0.0-rc.1.24431.7": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.NET.ILLink.Tasks.props": {}
+        }
+      },
+      "Reloaded.Hooks.Definitions/1.15.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Reloaded.Hooks.Definitions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Reloaded.Hooks.Definitions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Reloaded.Mod.Interfaces/2.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Reloaded.Mod.Interfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/_._": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Reloaded.SharedLib.Hooks/1.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Reloaded.Hooks.Definitions": "1.11.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Reloaded.Hooks.ReloadedII.Interfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Reloaded.Hooks.ReloadedII.Interfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Ryo.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Reloaded.Hooks.Definitions": "1.15.0"
+        },
+        "compile": {
+          "bin/placeholder/Ryo.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ryo.Interfaces.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.NET.ILLink.Tasks/9.0.0-rc.1.24431.7": {
+      "sha512": "B8jHIIszeUdDY+O4G1/xPOuhrriwsv9Z8/u3XSOAqc8Z0mQCeLBKg2oLGElDZeRF8wWXDGklAKY3f0IHopyXkQ==",
+      "type": "package",
+      "path": "microsoft.net.illink.tasks/9.0.0-rc.1.24431.7",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "Sdk/Sdk.props",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/cs/ILLink.CodeFixProvider.dll",
+        "analyzers/dotnet/cs/ILLink.RoslynAnalyzer.dll",
+        "build/Microsoft.NET.ILLink.Analyzers.props",
+        "build/Microsoft.NET.ILLink.Tasks.props",
+        "build/Microsoft.NET.ILLink.targets",
+        "microsoft.net.illink.tasks.9.0.0-rc.1.24431.7.nupkg.sha512",
+        "microsoft.net.illink.tasks.nuspec",
+        "tools/net472/ILLink.Tasks.dll",
+        "tools/net472/ILLink.Tasks.dll.config",
+        "tools/net472/Mono.Cecil.Mdb.dll",
+        "tools/net472/Mono.Cecil.Pdb.dll",
+        "tools/net472/Mono.Cecil.Rocks.dll",
+        "tools/net472/Mono.Cecil.dll",
+        "tools/net472/Sdk/Sdk.props",
+        "tools/net472/System.Buffers.dll",
+        "tools/net472/System.Collections.Immutable.dll",
+        "tools/net472/System.Memory.dll",
+        "tools/net472/System.Numerics.Vectors.dll",
+        "tools/net472/System.Reflection.Metadata.dll",
+        "tools/net472/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/net472/build/Microsoft.NET.ILLink.Analyzers.props",
+        "tools/net472/build/Microsoft.NET.ILLink.Tasks.props",
+        "tools/net472/build/Microsoft.NET.ILLink.targets",
+        "tools/net9.0/ILLink.Tasks.deps.json",
+        "tools/net9.0/ILLink.Tasks.dll",
+        "tools/net9.0/Mono.Cecil.Mdb.dll",
+        "tools/net9.0/Mono.Cecil.Pdb.dll",
+        "tools/net9.0/Mono.Cecil.Rocks.dll",
+        "tools/net9.0/Mono.Cecil.dll",
+        "tools/net9.0/Sdk/Sdk.props",
+        "tools/net9.0/build/Microsoft.NET.ILLink.Analyzers.props",
+        "tools/net9.0/build/Microsoft.NET.ILLink.Tasks.props",
+        "tools/net9.0/build/Microsoft.NET.ILLink.targets",
+        "tools/net9.0/illink.deps.json",
+        "tools/net9.0/illink.dll",
+        "tools/net9.0/illink.runtimeconfig.json",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Reloaded.Hooks.Definitions/1.15.0": {
+      "sha512": "bLY20vYB0fS2xwu6RDQVwlJxt2//KXLigYrCsCuzt5QFQqkvft4abq9FWPeCJYcvEeg/GQpJ3LC+108/4I2l+g==",
+      "type": "package",
+      "path": "reloaded.hooks.definitions/1.15.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net5.0/Reloaded.Hooks.Definitions.dll",
+        "lib/net5.0/Reloaded.Hooks.Definitions.xml",
+        "lib/net6.0/Reloaded.Hooks.Definitions.dll",
+        "lib/net6.0/Reloaded.Hooks.Definitions.xml",
+        "lib/netcoreapp3.1/Reloaded.Hooks.Definitions.dll",
+        "lib/netcoreapp3.1/Reloaded.Hooks.Definitions.xml",
+        "lib/netstandard2.0/Reloaded.Hooks.Definitions.dll",
+        "lib/netstandard2.0/Reloaded.Hooks.Definitions.xml",
+        "reloaded.hooks.definitions.1.15.0.nupkg.sha512",
+        "reloaded.hooks.definitions.nuspec"
+      ]
+    },
+    "Reloaded.Mod.Interfaces/2.4.0": {
+      "sha512": "HKQu7M0MyToKU4NK5Ula29MXSNeHz01ZzMK9BWD+xqJCITemAPdMW+w60Swln3ceGCU/ZooFSKtn4I8rcSA9AQ==",
+      "type": "package",
+      "path": "reloaded.mod.interfaces/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "NuGet-Icon.png",
+        "lib/netcoreapp3.1/Reloaded.Mod.Interfaces.dll",
+        "lib/netcoreapp3.1/Reloaded.Mod.Interfaces.xml",
+        "reloaded.mod.interfaces.2.4.0.nupkg.sha512",
+        "reloaded.mod.interfaces.nuspec"
+      ]
+    },
+    "Reloaded.SharedLib.Hooks/1.9.0": {
+      "sha512": "AEDTDhCnYxJGuLrdZCZPoiqrdl/lW4XwA6bb5dntOvkyw4RBBm/gqoNlHS7RJS7k+kt36ES+UFZAtBeyusYtgw==",
+      "type": "package",
+      "path": "reloaded.sharedlib.hooks/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/netstandard2.0/Reloaded.Hooks.ReloadedII.Interfaces.dll",
+        "lib/netstandard2.0/Reloaded.Hooks.ReloadedII.Interfaces.xml",
+        "reloaded.sharedlib.hooks.1.9.0.nupkg.sha512",
+        "reloaded.sharedlib.hooks.nuspec"
+      ]
+    },
+    "Ryo.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../include/Ryo/Ryo.Interfaces/Ryo.Interfaces.csproj",
+      "msbuildProject": "../include/Ryo/Ryo.Interfaces/Ryo.Interfaces.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "Microsoft.NET.ILLink.Tasks >= 9.0.0-rc.1.24431.7",
+      "Reloaded.Mod.Interfaces >= 2.4.0",
+      "Reloaded.SharedLib.Hooks >= 1.9.0",
+      "Ryo.Interfaces >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\sharm\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\sharm\\source\\repos\\p3rpc.kotone.cutscenes\\code\\p3rpc.kotone.cutscenes\\p3rpc.kotone.cutscenes\\p3rpc.kotone.cutscenes.csproj",
+      "projectName": "p3rpc.kotone.cutscenes",
+      "projectPath": "C:\\Users\\sharm\\source\\repos\\p3rpc.kotone.cutscenes\\code\\p3rpc.kotone.cutscenes\\p3rpc.kotone.cutscenes\\p3rpc.kotone.cutscenes.csproj",
+      "packagesPath": "C:\\Users\\sharm\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sharm\\source\\repos\\p3rpc.kotone.cutscenes\\code\\p3rpc.kotone.cutscenes\\p3rpc.kotone.cutscenes\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\sharm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {
+            "C:\\Users\\sharm\\source\\repos\\p3rpc.kotone.cutscenes\\code\\p3rpc.kotone.cutscenes\\include\\Ryo\\Ryo.Interfaces\\Ryo.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\sharm\\source\\repos\\p3rpc.kotone.cutscenes\\code\\p3rpc.kotone.cutscenes\\include\\Ryo\\Ryo.Interfaces\\Ryo.Interfaces.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "Microsoft.NET.ILLink.Tasks": {
+            "target": "Package",
+            "version": "[9.0.0-rc.1.24431.7, )"
+          },
+          "Reloaded.Mod.Interfaces": {
+            "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "target": "Package",
+            "version": "[2.4.0, )"
+          },
+          "Reloaded.SharedLib.Hooks": {
+            "target": "Package",
+            "version": "[1.9.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

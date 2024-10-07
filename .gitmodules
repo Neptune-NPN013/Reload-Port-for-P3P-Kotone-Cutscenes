@@ -1,0 +1,6 @@
+[submodule "Ryo"]
+	path = Ryo
+	url = https://github.com/T-PoseRatkechi/Ryo
+[submodule "code/p3rpc.kotone.cutscenes/include/Ryo"]
+	path = code/p3rpc.kotone.cutscenes/include/Ryo
+	url = https://github.com/T-PoseRatkechi/Ryo

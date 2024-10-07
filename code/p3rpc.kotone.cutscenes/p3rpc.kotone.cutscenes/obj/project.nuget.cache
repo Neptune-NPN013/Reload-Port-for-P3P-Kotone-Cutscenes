@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "VT/Ei2ixX1w=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sharm\\source\\repos\\p3rpc.kotone.cutscenes\\code\\p3rpc.kotone.cutscenes\\p3rpc.kotone.cutscenes\\p3rpc.kotone.cutscenes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sharm\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.0-rc.1.24431.7\\microsoft.net.illink.tasks.9.0.0-rc.1.24431.7.nupkg.sha512",
+    "C:\\Users\\sharm\\.nuget\\packages\\reloaded.hooks.definitions\\1.15.0\\reloaded.hooks.definitions.1.15.0.nupkg.sha512",
+    "C:\\Users\\sharm\\.nuget\\packages\\reloaded.mod.interfaces\\2.4.0\\reloaded.mod.interfaces.2.4.0.nupkg.sha512",
+    "C:\\Users\\sharm\\.nuget\\packages\\reloaded.sharedlib.hooks\\1.9.0\\reloaded.sharedlib.hooks.1.9.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,29 @@
+{
+  "ModId": "p3rpc.kotone.cutscenes",
+  "ModName": "Persona 3 Reload Kotone Cutscenes Project",
+  "ModAuthor": "Kotone Cutscenes Project Team",
+  "ModVersion": "1.0.0",
+  "ModDescription": "The Kotone Cutscenes Project implements reanimated versions of every cutscene to match the Female protagonist route of Persona 3 Portable. This includes alternative versions of scenes for choices exclusive to this route (eg. Theodore or Elizabeth).",
+  "ModDll": "p3rpc.kotone.cutscenes.dll",
+  "ModIcon": "icon.jpg",
+  "ModR2RManagedDll32": "x86/p3rpc.kotone.cutscenes.dll",
+  "ModR2RManagedDll64": "x64/p3rpc.kotone.cutscenes.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "Tags": [],
+  "CanUnload": null,
+  "HasExports": null,
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "p3rpc.kotone.cutscenes.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [
+    "reloaded.sharedlib.hooks",
+    "Ryo.Reloaded"
+  ],
+  "OptionalDependencies": [],
+  "SupportedAppId": [
+    "p3r.exe"
+  ],
+  "ProjectUrl": ""
+}
