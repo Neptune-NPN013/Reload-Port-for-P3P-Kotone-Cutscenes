@@ -71,11 +71,14 @@ namespace p3rpc.kotone.cutscenes
             {
                 if (_configuration.OpeningEnabled) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Opening Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("Opening"); } }
                 else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Opening Disabled", System.Drawing.Color.Blue); } }
-                if (_configuration.GeneralScenesEnabled) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Cutscenes Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("General"); } }
+                if (_configuration.GeneralScenesEnabled) 
+                { 
+                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Cutscenes Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("General"); }
+                    if (_configuration.VelvetTrue == VelvetAttendant.TheodoreBeta) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("Theodore"); } }
+                    else if (_configuration.VelvetTrue == VelvetAttendant.Elizabeth) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Elizabeth Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("Elizabeth"); } }
+                    else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Attempting to AutoDetect Femc Config", System.Drawing.Color.Blue); } AutoDetectSelection(); }
+                }
                 else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Cutscenes Disabled", System.Drawing.Color.Blue); } }
-                if (_configuration.VelvetTrue == VelvetAttendant.TheodoreBeta) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("Theodore"); } }
-                else if (_configuration.VelvetTrue == VelvetAttendant.Elizabeth) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Elizabeth Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("Elizabeth"); } }
-                else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Attempting to AutoDetect Femc Config", System.Drawing.Color.Blue); } AutoDetectSelection(); }
             }
             catch (Exception Ex)
             {
