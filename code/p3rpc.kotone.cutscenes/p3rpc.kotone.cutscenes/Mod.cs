@@ -2,7 +2,6 @@
 using p3rpc.kotone.cutscenes.Template;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Text.Json.Serialization;
 using System.Text.Json;
@@ -61,7 +60,6 @@ namespace p3rpc.kotone.cutscenes
             _configuration = context.Configuration;
             _modConfig = context.ModConfig;
             _ryo = GetDependency<IRyoApi>("Ryo");
-
             var process = Process.GetCurrentProcess();
             if (process.MainModule == null) throw new Exception($"[{_modConfig.ModName}] Could not get main module (this should never happen)");
             MovieManager();
@@ -97,6 +95,12 @@ namespace p3rpc.kotone.cutscenes
             if (femcdir is not null)
             {
                 if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine("Femc Directory Name: "+femcdir, System.Drawing.Color.Aquamarine); }
+                if(!File.Exists(Path.Combine(ReloadedDir, "User", "Mods", femcdir, "Config.json")))
+                {
+                    if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine("Unable to access the Femc Mod Config.", System.Drawing.Color.Red); }
+                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath("Theodore"); }
+                    return;
+                }
                 Theobro data = DeserializeFile<Theobro>(Path.Combine(ReloadedDir, "User", "Mods", femcdir, "Config.json"));
                 if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(data.TheodorefromAlvinandTheChipmunks ? "Theodore Enabled" : "Elizabeth Enabled", System.Drawing.Color.Blue); }
                 if (data.TheodorefromAlvinandTheChipmunks) { _ryo.AddMoviePath("Theodore"); }
