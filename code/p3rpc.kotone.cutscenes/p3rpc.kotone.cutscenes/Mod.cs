@@ -51,6 +51,8 @@ namespace p3rpc.kotone.cutscenes
         /// </summary>
         private readonly IRyoApi _ryo;
 
+        private string _modprefix;
+
         public Mod(ModContext context)
         {
             _modLoader = context.ModLoader;
@@ -59,6 +61,7 @@ namespace p3rpc.kotone.cutscenes
             _owner = context.Owner;
             _configuration = context.Configuration;
             _modConfig = context.ModConfig;
+            _modprefix = "[P3R Kotone CutScenes Project] ";
             _ryo = GetDependency<IRyoApi>("Ryo");
             var process = Process.GetCurrentProcess();
             if (process.MainModule == null) throw new Exception($"[{_modConfig.ModName}] Could not get main module (this should never happen)");
@@ -70,20 +73,21 @@ namespace p3rpc.kotone.cutscenes
             try
             {
                 string path = _modLoader.GetDirectoryForModId(_modConfig.ModId);
-                if (_configuration.OpeningEnabled) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Opening Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Opening")); } }
-                else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Opening Disabled", System.Drawing.Color.Blue); } }
+                if (_configuration.OpeningEnabled) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Opening Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Opening")); } }
+                else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Opening Disabled", System.Drawing.Color.Blue); } }
                 if (_configuration.GeneralScenesEnabled) 
                 { 
-                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Cutscenes Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "General")); }
-                    if (_configuration.VelvetTrue == VelvetAttendant.TheodoreBeta) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore")); } }
-                    else if (_configuration.VelvetTrue == VelvetAttendant.Elizabeth) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Elizabeth Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Elizabeth")); } }
-                    else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Attempting to AutoDetect Femc Config", System.Drawing.Color.Blue); } AutoDetectSelection(); }
+                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Cutscenes Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "General")); }
+                    if (_configuration.VelvetTrue == VelvetAttendant.TheodoreBeta) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore")); } }
+                    else if (_configuration.VelvetTrue == VelvetAttendant.Elizabeth) { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Elizabeth Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Elizabeth")); } }
+                    else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Attempting to AutoDetect Femc Config", System.Drawing.Color.Blue); } AutoDetectSelection(); }
                 }
-                else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Cutscenes Disabled", System.Drawing.Color.Blue); } }
+                else { if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Cutscenes Disabled", System.Drawing.Color.Blue); } }
             }
             catch (Exception Ex)
             {
-                _logger.WriteLine("Failed to add movie paths to Ryo. The mod will not WORK");
+                _logger.WriteLine(_modprefix + "Failed to add movie paths to Ryo. The mod will not WORK", System.Drawing.Color.Red);
+                _logger.WriteLine(_modprefix + "Exeption: "+Ex,System.Drawing.Color.Red);
             }
         }
 
@@ -92,10 +96,10 @@ namespace p3rpc.kotone.cutscenes
             try
             {
                 string? femcdir = null;
-                string? ReloadedModsDir = Path.GetDirectoryName(_modLoader.GetDirectoryForModId(_modConfig.ModId)); if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine("Reloaded Mods Directory Path: " + ReloadedModsDir, System.Drawing.Color.Aquamarine); }
+                string? ReloadedModsDir = Path.GetDirectoryName(_modLoader.GetDirectoryForModId(_modConfig.ModId)); if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine(_modprefix + "Reloaded Mods Directory Path: " + ReloadedModsDir, System.Drawing.Color.Aquamarine); }
                 if (ReloadedModsDir is null)
-                    return;
-                string? ReloadedDir = Path.GetDirectoryName(ReloadedModsDir); if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine("Reloaded Directory Path: " + ReloadedDir, System.Drawing.Color.Aquamarine); };
+                    throw new Exception("Unable to get the Reloaded Mods Directory Path. This Should never happen and if you get this message please get support on the official Discord/Github");
+                string? ReloadedDir = Path.GetDirectoryName(ReloadedModsDir); if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine(_modprefix + "Reloaded Directory Path: " + ReloadedDir, System.Drawing.Color.Aquamarine); };
                 foreach (var dir in Directory.EnumerateDirectories(ReloadedModsDir))
                 {
                     var femcDll = Path.Join(dir, "p3rpc.femc.dll");
@@ -107,27 +111,28 @@ namespace p3rpc.kotone.cutscenes
                 }
                 if (femcdir is not null)
                 {
-                    if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine("Femc Directory Name: " + femcdir, System.Drawing.Color.Aquamarine); }
+                    if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine(_modprefix + "Femc Directory Name: " + femcdir, System.Drawing.Color.Aquamarine); }
                     if (!File.Exists(Path.Combine(ReloadedDir, "User", "Mods", femcdir, "Config.json")))
                     {
-                        if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine("Unable to access the Femc Mod Config.", System.Drawing.Color.Red); }
-                        if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore")); }
+                        if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine(_modprefix + "Unable to access the Femc Mod Config.", System.Drawing.Color.Red); }
+                        if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore")); }
                         return;
                     }
                     Theobro data = DeserializeFile<Theobro>(Path.Combine(ReloadedDir, "User", "Mods", femcdir, "Config.json"));
-                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(data.TheodorefromAlvinandTheChipmunks ? "Theodore Enabled" : "Elizabeth Enabled", System.Drawing.Color.Blue); }
+                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(data.TheodorefromAlvinandTheChipmunks ? _modprefix + "Theodore Enabled" : _modprefix + "Elizabeth Enabled", System.Drawing.Color.Blue); }
                     if (data.TheodorefromAlvinandTheChipmunks) { _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore")); }
                     else { _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Elizabeth")); }
                 }
                 else
                 {
-                    if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine("Unable to detect the Femc Mod. It is recommended to be installed along with this mod but not necessary.", System.Drawing.Color.Red); }
-                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine("Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore")); }
+                    if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine(_modprefix + "Unable to detect the Femc Mod. It is recommended to be installed along with this mod but not necessary.", System.Drawing.Color.Red); }
+                    if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Theodore Enabled", System.Drawing.Color.Blue); _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore")); }
                 }
             }
             catch(Exception ex)
             {
-                _logger.WriteLine("An error occured while trying to auto-detect the femc config. The scenes might be broken. Either disable AutoDetect or contact someone on the Official Discord/Github.", System.Drawing.Color.Red);
+                _logger.WriteLine(_modprefix + "An error occured while trying to auto-detect the femc config. The scenes might be broken. Either disable AutoDetect or contact someone on the Official Discord/Github.", System.Drawing.Color.Red);
+                _logger.WriteLine(_modprefix + "Exception: "+ex,System.Drawing.Color.Red);
             }
         }
 
