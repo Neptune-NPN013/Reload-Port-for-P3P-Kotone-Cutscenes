@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("p3rpc.kotone.cutscenes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4180d03822597a8796e1c1688714fa7d467f944a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebdd0be66300ef1260c262eccb00ebf3ea50d1bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("p3rpc.kotone.cutscenes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("p3rpc.kotone.cutscenes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
