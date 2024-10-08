@@ -86,7 +86,7 @@ namespace p3rpc.kotone.cutscenes
             }
             catch (Exception Ex)
             {
-                if (Ex.Message == "Failed to deserialize JSON." || Ex.Message == "Unable to get the Reloaded Mods Directory Path. This Should never happen and if you get this message please get support on the official Discord/Github") { throw new Exception(Ex.Message); }
+                if (Ex.Message == "Unable to get the Reloaded Mods Directory Path. This Should never happen and if you get this message please get support on the official Discord/Github") { throw new Exception(Ex.Message); }
                 _logger.WriteLine(_modprefix + "Failed to add movie paths to Ryo. The mod will not WORK", System.Drawing.Color.Red);
                 _logger.WriteLine(_modprefix + "Exeption: "+Ex,System.Drawing.Color.Red);
             }
@@ -126,14 +126,16 @@ namespace p3rpc.kotone.cutscenes
                 }
                 else
                 {
-                    if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine(_modprefix + "Unable to detect the Femc Mod. It is recommended to be installed along with this mod but not necessary.", System.Drawing.Color.Red); }
+                    if (_configuration.LogTrue == LogLevel.Debug) { _logger.WriteLine(_modprefix + "Unable to detect the Femc Mod. It is recommended to be installed along with this mod but not necessary. Falling over to Theodore.", System.Drawing.Color.Red); }
                     if (_configuration.LogTrue != LogLevel.None) { _logger.WriteLine(_modprefix + "Theodore Enabled", System.Drawing.Color.Blue); } _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore"));
                 }
             }
             catch(Exception ex)
             {
-                if(ex.Message== "Failed to deserialize JSON." || ex.Message== "Unable to get the Reloaded Mods Directory Path. This Should never happen and if you get this message please get support on the official Discord/Github") { throw new Exception(ex.Message); }
-                _logger.WriteLine(_modprefix + "An error occured while trying to auto-detect the femc config. The scenes might be broken. Either disable AutoDetect or contact someone on the Official Discord/Github.", System.Drawing.Color.Red);
+                if(ex.Message== "Unable to get the Reloaded Mods Directory Path. This Should never happen and if you get this message please get support on the official Discord/Github") { throw new Exception(ex.Message); }
+                _logger.WriteLine(_modprefix + "An error occured while trying to auto-detect the femc config. The scenes might be broken. Either disable AutoDetect or contact someone on the Official Discord/Github. Currently falling over to Theodore.", System.Drawing.Color.Red);
+                _logger.WriteLine(_modprefix + "Theodore Enabled", System.Drawing.Color.Blue);
+                _ryo.AddMoviePath(Path.Combine(_modLoader.GetDirectoryForModId(_modConfig.ModId), "Theodore"));
                 _logger.WriteLine(_modprefix + "Exception: "+ex,System.Drawing.Color.Red);
             }
         }
