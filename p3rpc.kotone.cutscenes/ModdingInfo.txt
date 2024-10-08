@@ -1,0 +1,30 @@
+General - All cutscenes which don't have Elizabeth or Theodore in them
+Opening - Contains the Opening Movie
+Elizabeth - All cutscenes with Elizabeth
+Theodore - All cutscenes with Theodore
+
+Movie ID/ Movie File Name/ Movie Name
+
+1/ MS_Event_Main_100_010/ The Opening
+2/ MS_Event_Main_100_090/ Yukari introduces the school
+3/ MS_Event_Main_110_070/ Tartarus Appears
+4/ MS_Event_Extr_410_040/ SEES put on the new uniforms
+5/ MS_Event_Main_130_140/ Yukari in the shower before the Lovers boss
+6/ MS_Event_Main_140_030/ Mitsuru explains the incident 10 years ago
+7/ MS_Event_Main_140_140/ Boat to Yakushima
+8/ MS_Event_Main_140_170/ Girls in swimsuits in Yakushima
+9/ MS_Event_Main_140_210/ Yukari's dad's video
+10/ MS_Event_Main_190_070/ SEES crucified on the observatory
+11/ MS_Event_Main_190_140/ Yukari watches her dad's real video
+12/ MS_Event_Main_190_210/ Arriving at Kyoto
+13/ MS_Event_Main_200_130/ Aigis vs Ryoji
+14/ MS_Event_Main_210_210/ The Fall Begins
+15 (Velvet Attendant)/ MS_Event_Main_210_250/ Hero goes to Nyx's Core
+16/ MS_Event_Main_210_270/ The Fall is averted, Tartarus disappears
+17/ MS_Event_Main_220_030/ SEES run to the roof
+18/ MS_Event_Main_230_060/ Bad ending
+19/ MS_Event_Main_220_060/ Post-credits scene, SEES finds Hero sleeping
+20/ MS_Endcredits_Good/ Good Credits
+21/ MS_Event_Main_100_025/ Opening cutscene part 1, butterfly with text
+
+X(INGAME)/ MS_Event_Main_100_030/ Opening cutscene part 2, Hero walks to the dorm
