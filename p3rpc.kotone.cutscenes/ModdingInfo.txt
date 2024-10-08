@@ -5,7 +5,8 @@ Theodore - All cutscenes with Theodore
 
 Movie ID/ Movie File Name/ Movie Name
 
-1/ MS_Event_Main_100_010/ The Opening
+0/ MS_Event_Main_100_010/ The Opening Movie
+1/ MS_Event_Main_100_030/ Opening cutscene part 2, Hero walks to the dorm
 2/ MS_Event_Main_100_090/ Yukari introduces the school
 3/ MS_Event_Main_110_070/ Tartarus Appears
 4/ MS_Event_Extr_410_040/ SEES put on the new uniforms
@@ -26,5 +27,3 @@ Movie ID/ Movie File Name/ Movie Name
 19/ MS_Event_Main_220_060/ Post-credits scene, SEES finds Hero sleeping
 20/ MS_Endcredits_Good/ Good Credits
 21/ MS_Event_Main_100_025/ Opening cutscene part 1, butterfly with text
-
-X(INGAME)/ MS_Event_Main_100_030/ Opening cutscene part 2, Hero walks to the dorm
