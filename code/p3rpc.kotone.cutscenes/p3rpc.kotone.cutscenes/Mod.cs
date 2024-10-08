@@ -86,6 +86,7 @@ namespace p3rpc.kotone.cutscenes
             }
             catch (Exception Ex)
             {
+                if (Ex.Message == "Failed to deserialize JSON." || Ex.Message == "Unable to get the Reloaded Mods Directory Path. This Should never happen and if you get this message please get support on the official Discord/Github") { throw new Exception(Ex.Message); }
                 _logger.WriteLine(_modprefix + "Failed to add movie paths to Ryo. The mod will not WORK", System.Drawing.Color.Red);
                 _logger.WriteLine(_modprefix + "Exeption: "+Ex,System.Drawing.Color.Red);
             }
@@ -131,6 +132,7 @@ namespace p3rpc.kotone.cutscenes
             }
             catch(Exception ex)
             {
+                if(ex.Message== "Failed to deserialize JSON." || ex.Message== "Unable to get the Reloaded Mods Directory Path. This Should never happen and if you get this message please get support on the official Discord/Github") { throw new Exception(ex.Message); }
                 _logger.WriteLine(_modprefix + "An error occured while trying to auto-detect the femc config. The scenes might be broken. Either disable AutoDetect or contact someone on the Official Discord/Github.", System.Drawing.Color.Red);
                 _logger.WriteLine(_modprefix + "Exception: "+ex,System.Drawing.Color.Red);
             }
